@@ -4,17 +4,12 @@ function getQueryParam(name) {
 }
 
 function enviarMensagem() {
-  const nome = document.getElementById("nome").value.trim();
   const mensagem = document.getElementById("mensagem").value.trim();
-  const usuario = getQueryParam("user") || "desconhecido";
+  const sender = document.getElementById("nome").value.trim(); // input com ID 'nome'
+  const user = getQueryParam("user") || "Nataraujjo";
 
-  if (!nome) {
-    alert("Por favor, preencha seu nome.");
-    return;
-  }
-
-  if (!mensagem) {
-    alert("Por favor, digite uma mensagem.");
+  if (!mensagem || !sender) {
+    alert("Por favor, preencha todos os campos.");
     return;
   }
 
@@ -24,8 +19,8 @@ function enviarMensagem() {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-      user: usuario,
-      sender: nome,
+      user: user,
+      sender: sender,
       message: mensagem
     })
   })
@@ -33,14 +28,14 @@ function enviarMensagem() {
   .then(data => {
     if (data.status === "sucesso") {
       alert("Mensagem enviada com sucesso!");
-      document.getElementById("nome").value = "";
       document.getElementById("mensagem").value = "";
+      document.getElementById("nome").value = "";
     } else {
       alert("Erro ao enviar: " + data.mensagem);
     }
   })
   .catch(error => {
     alert("Erro ao enviar mensagem.");
-    console.error("Erro:", error);
+    console.error(error);
   });
 }
