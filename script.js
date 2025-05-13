@@ -15,7 +15,7 @@ function enviarMensagem() {
 
   // Valida se os campos 'nome' e 'mensagem' não estão vazios
   if (!nome || !mensagem) {
-    alert("Por favor, preencha seu nome e a mensagem.");
+    alert("Por favor, preencha seu instagram e a mensagem.");
     return;
   }
 
