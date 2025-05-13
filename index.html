@@ -4,26 +4,27 @@
   <meta charset="UTF-8">
   <title>Envie-me mensagens anônimas</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="/estilos.css">
 </head>
 <body>
   <h1>Secret.me</h1>
   <div class="card">
     <p><strong>@Nataraujjo</strong></p>
     <p>Envie-me mensagens anônimas!</p>
-    <p class="aviso">Por questão de segurança, o nome será necessário.<br>
+    <p class="aviso">
+      Por questão de segurança, o nome será necessário.<br>
       <small>(Mas não se preocupe, seu nome não aparecerá para quem publicou o secret)</small>
     </p>
 
     <div class="message-box">
       <input type="text" id="nome" placeholder="Seu nome (obrigatório)" class="input-box" />
-      <textarea id="mensagem" placeholder="Escreva sua mensagem..."></textarea>
+      <textarea id="mensagem" placeholder="Escreva sua mensagem..." class="input-box"></textarea>
       <button onclick="enviarMensagem()">Enviar</button>
     </div>
 
     <p style="margin-top:15px;">🔒 100% anônimo</p>
   </div>
 
-  <script src="script.js"></script>
+  <script src="/script.js"></script>
 </body>
 </html>
