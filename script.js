@@ -12,7 +12,7 @@ function enviarMensagem() {
     return;
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbzuYYbZlJO9q5j_7NcvFq4rOhY4p3539SO8jCEdWugHjA1FiJTdG9RavcH2q3KyJxCi/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyFhTgflbyASxQSrbez5cHHntkv1fETOxlXL1RCMQ_z5WU8ii61bRqowKBJA27mhC-H/exec", {
     method: "POST",
     body: JSON.stringify({
       user: usuario,
