@@ -5,37 +5,28 @@ function getQueryParam(name) {
 
 function enviarMensagem() {
   const mensagem = document.getElementById("mensagem").value.trim();
-  const sender = document.getElementById("nome").value.trim(); // input com ID 'nome'
-  const user = getQueryParam("user") || "Nataraujjo";
+  const nome = document.getElementById("nome").value.trim();
+  const usuario = getQueryParam("user") || "desconhecido";
 
-  if (!mensagem || !sender) {
-    alert("Por favor, preencha todos os campos.");
+  if (!nome || !mensagem) {
+    alert("Por favor, preencha seu nome e a mensagem.");
     return;
   }
 
-  fetch("https://script.google.com/macros/s/AKfycbyFhTgflbyASxQSrbez5cHHntkv1fETOxlXL1RCMQ_z5WU8ii61bRqowKBJA27mhC-H/exec", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      user: user,
-      sender: sender,
-      message: mensagem
-    })
-  })
-  .then(response => response.json())
-  .then(data => {
-    if (data.status === "sucesso") {
+  const url = `https://script.google.com/macros/s/AKfycbyFhTgflbyASxQSrbez5cHHntkv1fETOxlXL1RCMQ_z5WU8ii61bRqowKBJA27mhC-H/exec` +
+              `?user=${encodeURIComponent(usuario)}` +
+              `&sender=${encodeURIComponent(nome)}` +
+              `&message=${encodeURIComponent(mensagem)}`;
+
+  fetch(url)
+    .then(response => response.text())
+    .then(data => {
       alert("Mensagem enviada com sucesso!");
       document.getElementById("mensagem").value = "";
       document.getElementById("nome").value = "";
-    } else {
-      alert("Erro ao enviar: " + data.mensagem);
-    }
-  })
-  .catch(error => {
-    alert("Erro ao enviar mensagem.");
-    console.error(error);
-  });
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Erro ao enviar mensagem.");
+    });
 }
