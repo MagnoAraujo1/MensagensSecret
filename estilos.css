@@ -14,7 +14,7 @@ body {
   border-radius: 20px;
   padding: 30px;
   margin: auto;
-  max-width: 400px;
+  max-width: 600px;
   box-shadow: 0 0 10px #000;
 }
 
@@ -37,7 +37,7 @@ body {
 
 textarea {
   width: 100%;
-  min-height: 200px;
+  min-height: 170px;
   resize: vertical;
   border-radius: 10px;
   border: none;
